@@ -57,7 +57,7 @@ export default function Cast({
       <p className="text-[#646D7A] mt-8">{cast?.text}</p>
       <div
         className={`flex gap-4 justify-end absolute bottom-6 right-6 ml-auto mt-auto ${
-          hovering ? "" : "hidden"
+          hovering ? "" : "md:hidden"
         }`}
       >
         <MintCastButton hash={cast?.hash!} />

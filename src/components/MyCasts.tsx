@@ -22,7 +22,7 @@ export const MyCasts: FC = () => {
   }, [user?.fid]);
 
   return (
-    <div className="grid grid-cols-3 gap-6 mt-10">
+    <div className="grid md:grid-cols-3 md:gap-6 mt-10 grid-cols-1 gap-4">
       {casts ? (
         <>
           {casts.map((cast) => {

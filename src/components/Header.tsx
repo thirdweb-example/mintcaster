@@ -67,8 +67,8 @@ export const Header: FC = () => {
   };
 
   return (
-    <nav className={"flex justify-between items-center py-4 px-20"}>
-      <div className={"flex items-center gap-4"}>
+    <nav className="flex justify-between items-center py-4 md:px-20 px-4">
+      <div className="items-center gap-4 md:flex hidden">
         <Link href="/">
           <Image
             src="/MintCast.svg"
