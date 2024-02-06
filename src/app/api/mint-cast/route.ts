@@ -28,7 +28,15 @@ export async function POST(request: Request) {
       result: { cast },
     } = await neynarClient.lookUpCastByHash(hash);
 
-    const svg = getSvg(String(cast.text), String(cast.author.fid));
+    const { result: author } = await neynarClient.lookupUserByFid(
+      Number(cast.author.fid)
+    );
+
+    const svg = getSvg(
+      String(cast.text),
+      String(author.user.displayName),
+      String(author.user.pfp.url)
+    );
 
     const ipfs = await thirdwebSDK.storage.upload(svg);
 

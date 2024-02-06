@@ -57,7 +57,7 @@ export const MintCastButton: FC<MintCastButtonProps> = ({ hash }) => {
   return (
     <>
       {userData ? (
-        <Button onClick={mintCast} disabled={loading}>
+        <Button onClick={mintCast} disabled={loading} variant="outline">
           {loading ? "loading" : "Mint Cast"}
         </Button>
       ) : (

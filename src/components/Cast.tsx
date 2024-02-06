@@ -1,37 +1,42 @@
-import { CastWithInteractions } from "@neynar/nodejs-sdk/build/neynar-api/v2";
-import Image from "next/image";
-import { ReactElement, useState } from "react";
-import { MintCastButton } from "./MintCastButton";
 import useLocalStorage from "@/hooks/use-local-storage-state";
 import { UserInfo } from "@/types";
+import {
+  Cast,
+  CastWithInteractions,
+} from "@neynar/nodejs-sdk/build/neynar-api/v2";
+import Image from "next/image";
+import { ReactElement, useState } from "react";
 import { DeleteCastButton } from "./DeleteCastButton";
+import { MintCastButton } from "./MintCastButton";
 
 export default function Cast({
   cast,
   author,
 }: {
   cast: CastWithInteractions | undefined;
-  author?: any;
+  author?: Cast["author"];
 }): ReactElement {
   const [hovering, setHovering] = useState(true);
   const [user] = useLocalStorage<UserInfo>("user");
 
+  // @ts-ignore
+  const pfp = cast?.author.pfp_url || author?.pfp.url;
+
   return (
     <div
-      className={`border-[#272B30] border-2 rounded-md p-6 hover:shadow-lg transition-all duration-200 hover:border-blue-400 ${
-        !hovering && "pb-20"
-      }`}
+      className="border-[#272B30] border-[1px] rounded-md p-6 hover:shadow-lg transition-all duration-200 hover:border-blue-400 relative h-fit pb-20"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
       <div className="flex gap-2 items-center">
-        {(cast?.author.pfp_url || author?.pfp.url) && (
+        {pfp && (
           <Image
-            src={cast?.author.pfp_url || author?.pfp.url}
+            src={pfp}
             alt={
               cast?.author.display_name ||
               author?.display_name ||
-              cast?.author.username
+              cast?.author.username ||
+              ""
             }
             width={36}
             height={36}
@@ -45,15 +50,15 @@ export default function Cast({
             author?.username}
         </p>
 
-        {author?.fid === user?.fid && (
-          <DeleteCastButton hash={cast?.hash!} author={author} />
+        {String(author?.fid) === String(user?.fid) && (
+          <DeleteCastButton hash={cast?.hash!} author={author?.fid!} />
         )}
       </div>
       <p className="text-[#646D7A] mt-8">{cast?.text}</p>
       <div
-        className={`flex gap-4 mt-4 justify-end ${
+        className={`flex gap-4 justify-end absolute bottom-6 right-6 ml-auto mt-auto ${
           hovering ? "" : "hidden"
-        } mt-auto`}
+        }`}
       >
         <MintCastButton hash={cast?.hash!} />
       </div>

@@ -3,10 +3,11 @@ import { UserInfo } from "@/types";
 import { useEffect, type FC, useState } from "react";
 import Cast from "./Cast";
 import { CastSkeleton } from "./CastSkeleton";
+import { CastWithInteractions } from "@neynar/nodejs-sdk/build/neynar-api/v2";
 
 export const MyCasts: FC = () => {
   const [user] = useLocalStorage<UserInfo>("user");
-  const [casts, setCasts] = useState<any>();
+  const [casts, setCasts] = useState<CastWithInteractions[]>();
 
   useEffect(() => {
     if (!user?.fid) return;

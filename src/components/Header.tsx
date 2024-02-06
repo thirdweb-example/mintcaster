@@ -11,9 +11,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import useLocalStorage from "@/hooks/use-local-storage-state";
-import { cn } from "@/lib/utils";
 import { UserInfo } from "@/types";
-import { LogOut, PlusIcon } from "lucide-react";
+import { LogOut, Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, type FC } from "react";
@@ -68,12 +67,12 @@ export const Header: FC = () => {
   };
 
   return (
-    <nav className={cn("flex justify-between items-center py-4 px-20")}>
-      <div className={cn("flex items-center gap-4")}>
+    <nav className={"flex justify-between items-center py-4 px-20"}>
+      <div className={"flex items-center gap-4"}>
         <Link href="/">
           <Image
-            src="/thirdweb.svg"
-            alt="thirdweb"
+            src="/MintCast.svg"
+            alt="MintCast"
             width={102}
             height={25}
             className="cursor-pointer"
@@ -81,9 +80,9 @@ export const Header: FC = () => {
         </Link>
       </div>
 
-      <div className={cn("flex items-center gap-4")}>
+      <div className={"flex items-center gap-4"}>
         {userData?.displayName ? (
-          <div className={cn("flex items-center gap-4")}>
+          <div className={"flex items-center gap-4"}>
             {userData?.pfp.url && (
               <Image
                 src={userData?.pfp.url}
@@ -101,7 +100,11 @@ export const Header: FC = () => {
                   variant="secondary"
                   className="bg-[#0091FF] text-white gap-2 rounded-lg h-8 w-28 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500"
                 >
-                  <PlusIcon width={24} height={24} />
+                  <Plus
+                    width={24}
+                    height={24}
+                    className="!w-8 !h-8 fill-current text-white"
+                  />
                   New Cast
                 </Button>
               </DialogTrigger>
@@ -154,9 +157,9 @@ export const Header: FC = () => {
             <Button
               onClick={handleSignout}
               variant="outline"
-              className="bg-[#131417] text-white hover:bg-[#2B2B2B] hover:text-white border-[#2B2B2B] border-2 rounded-lg h-8 w-28"
+              className=" text-white hover:bg-[#2B2B2B] hover:text-white border-[#2B2B2B] border-2 rounded-lg h-8 w-28 gap-2"
             >
-              <LogOut />
+              <LogOut width={16} height={16} />
               Sign out
             </Button>
           </div>
