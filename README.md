@@ -1,40 +1,60 @@
-## Getting Started
+# MintCast
 
-Create a project using this example:
+This project demonstrates how you can thirdweb engine to mint casts from farcaster as an NFT.
 
-```bash
-npx thirdweb create --template next-typescript-starter
-```
+## Installation
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-On `pages/_app.tsx`, you'll find our `ThirdwebProvider` wrapping your app, this is necessary for our [hooks](https://portal.thirdweb.com/react) and
-[UI Components](https://portal.thirdweb.com/ui-components) to work.
-
-## Environment Variables
-
-To run this project, you will need to add environment variables. Check the `.env.example` file for all the environment variables required and add it to `.env.local` file or set them up on your hosting provider.
-
-## Deploy to IPFS
-
-Deploy a copy of your application to IPFS using the following command:
+Install the template with [thirdweb create](https://portal.thirdweb.com/cli/create)
 
 ```bash
-yarn deploy
+npx thirdweb create --template mintcast
 ```
 
-## Learn More
+## Set up
 
-To learn more about thirdweb and Next.js, take a look at the following resources:
+- Deploy or import an already deployed edition contract on thirdweb dashboard.
 
-- [thirdweb React Documentation](https://docs.thirdweb.com/react) - learn about our React SDK.
-- [thirdweb TypeScript Documentation](https://docs.thirdweb.com/typescript) - learn about our JavaScript/TypeScript SDK.
-- [thirdweb Portal](https://docs.thirdweb.com) - check our guides and development resources.
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+### Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file:
+
+```bash
+NEYNAR_API_KEY=
+NEXT_PUBLIC_NEYNAR_CLIENT_ID=
+TW_ENGINE_URL=
+TW_ACCESS_TOKEN=
+TW_BACKEND_WALLET==
+TW_SECRET_KEY=
+NFT_CONTRACT_ADDRESS=
+```
+
+### Run Locally
+
+Install dependencies:
+
+```bash
+  yarn
+```
+
+Start the server:
+
+```bash
+  yarn start
+```
+
+## Additional Resources
+
+- [Documentation](https://portal.thirdweb.com)
 - [Templates](https://thirdweb.com/templates)
+- [Video Tutorials](https://youtube.com/thirdweb_)
+- [Blog](https://blog.thirdweb.com)
 
-You can check out [the thirdweb GitHub organization](https://github.com/thirdweb-dev) - your feedback and contributions are welcome!
+## Contributing
 
-## Join our Discord!
+Contributions and [feedback](https://feedback.thirdweb.com) are always welcome!
 
-For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
+Please visit our [open source page](https://thirdweb.com/open-source) for more information.
+
+## Need help?
+
+For help, join the [discord](https://discord.gg/thirdweb) or visit our [support page](https://support.thirdweb.com).
