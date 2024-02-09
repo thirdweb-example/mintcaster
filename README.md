@@ -1,4 +1,4 @@
-# MintCast
+# Mintcaster
 
 This project demonstrates how you can thirdweb engine to mint casts from farcaster as an NFT.
 
@@ -7,7 +7,7 @@ This project demonstrates how you can thirdweb engine to mint casts from farcast
 Install the template with [thirdweb create](https://portal.thirdweb.com/cli/create)
 
 ```bash
-npx thirdweb create --template mintcast
+npx thirdweb create --template Mintcaster
 ```
 
 ## Set up

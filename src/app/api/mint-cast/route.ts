@@ -53,15 +53,15 @@ export async function POST(request: Request) {
         receiver: address,
         metadataWithSupply: {
           metadata: {
-            name: "MintCast",
-            description: "MintCast",
+            name: "Mintcaster",
+            description: "Mintcaster",
             image: ipfs,
-            external_url: `https://mintcast.vercel.app/cast/${hash}`,
+            external_url: `https://mintcaster.vercel.app/cast/${hash}`,
             // @ts-ignore
             attributes: [
               {
                 trait_type: "Type",
-                value: "MintCast",
+                value: "Mintcaster",
               },
               {
                 trait_type: "Author",

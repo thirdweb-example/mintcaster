@@ -71,9 +71,9 @@ export const Header: FC = () => {
       <div className="items-center gap-4 md:flex hidden">
         <Link href="/">
           <Image
-            src="/MintCast.svg"
-            alt="MintCast"
-            width={102}
+            src="/Mintcaster.svg"
+            alt="Mintcaster"
+            width={150}
             height={25}
             className="cursor-pointer"
           />
