@@ -1,3 +1,5 @@
+"use client";
+
 import useLocalStorage from "@/hooks/use-local-storage-state";
 import { UserInfo } from "@/types";
 import {
@@ -5,6 +7,7 @@ import {
   CastWithInteractions,
 } from "@neynar/nodejs-sdk/build/neynar-api/v2";
 import Image from "next/image";
+import Link from "next/link";
 import { ReactElement, useState } from "react";
 import { DeleteCastButton } from "./DeleteCastButton";
 import { MintCastButton } from "./MintCastButton";
@@ -28,33 +31,38 @@ export default function Cast({
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <div className="flex gap-2 items-center">
-        {pfp && (
-          <Image
-            src={pfp}
-            alt={
-              cast?.author.display_name ||
-              author?.display_name ||
+      <div className="flex items-center">
+        <Link
+          href={`/user/${cast?.author.fid}`}
+          className="flex gap-2 items-center"
+        >
+          {pfp && (
+            <Image
+              src={pfp}
+              alt={
+                cast?.author.display_name ||
+                author?.display_name ||
+                cast?.author.username ||
+                ""
+              }
+              width={36}
+              height={36}
+              className="rounded-full"
+            />
+          )}
+          <p className="font-semibold text-white text-lg">
+            {cast?.author.display_name ||
               cast?.author.username ||
-              ""
-            }
-            width={36}
-            height={36}
-            className="rounded-full"
-          />
-        )}
-        <p className="font-semibold text-white text-lg">
-          {cast?.author.display_name ||
-            cast?.author.username ||
-            author?.display_name ||
-            author?.username}
-        </p>
+              author?.display_name ||
+              author?.username}
+          </p>
+        </Link>
 
         {String(author?.fid) === String(user?.fid) && (
           <DeleteCastButton hash={cast?.hash!} author={author?.fid!} />
         )}
       </div>
-      <p className="text-[#646D7A] mt-8">{cast?.text}</p>
+      <p className="text-[#646D7A] mt-8">{String(cast?.text)}</p>
       <div
         className={`flex gap-4 justify-end absolute bottom-6 right-6 ml-auto mt-auto ${
           hovering ? "" : "md:hidden"

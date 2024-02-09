@@ -55,9 +55,11 @@ export const Casts: FC<Props> = ({ feed }) => {
       </div>
 
       {all ? (
-        <div className="grid md:grid-cols-3 md:gap-6 mt-10 grid-cols-1 gap-4">
+        <div className="flex flex-col gap-4 pt-6">
           {feed.map((cast) => {
-            return <Cast key={cast.thread_hash} cast={cast} />;
+            if (cast.text) {
+              return <Cast key={cast.thread_hash} cast={cast} />;
+            }
           })}
         </div>
       ) : (
