@@ -13,7 +13,24 @@ export const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "farcaster x thirdweb",
+  title: "Mintcaster",
+  description:
+    "A Farcaster client that enables you to sign in with Farcaster, see & create casts, and mint any cast as an NFT. Sign in to get started.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://mintcaster.thirdweb-example.com/",
+    description:
+      "A Farcaster client that enables you to sign in with Farcaster, see & create casts, and mint any cast as an NFT. Sign in to get started.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Mintcaster",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
